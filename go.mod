@@ -1,3 +1,3 @@
-module github.com/opcode0x1B6/management
+module github.com/stafel/management
 
 go 1.20
