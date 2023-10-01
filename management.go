@@ -64,7 +64,17 @@ func loadWorld(inpath string) *MgWorld {
 // initialize new world
 func newWorld() *MgWorld {
 	log.Print("Creating new world")
-	return &MgWorld{} // just init
+
+	c := &MgCharacter{
+		Name: "Lex",
+		Age:  22,
+		Mood: "Hungry",
+	}
+
+	w := &MgWorld{}
+	w.Characters = append(w.Characters, c)
+
+	return w
 }
 
 // loads existing json or creates new world if not existing
@@ -86,19 +96,6 @@ func readLine() (string, error) {
 	}
 
 	return strings.Replace(text, "\n", "", 1), nil // remove the CR from text
-}
-
-func saveTestworld() {
-	c := &MgCharacter{
-		Name: "Lex",
-		Age:  22,
-		Mood: "Hungry",
-	}
-
-	w := &MgWorld{}
-	w.Characters = append(w.Characters, c)
-
-	saveWorld(w, WORLD_PATH)
 }
 
 func main() {
